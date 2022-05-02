@@ -55,7 +55,9 @@
     <hr class="bg-success m-0 p-0  " style="height:5px;" id="submitCheck">
     <div class="mx-2 pt-2 mx-lg-4 mx-xl-5">
 
-        <div class="d-flex justify-content-end text-danger pe-4">F11 - Full Screen &nbsp;
+        <div class="d-flex justify-content-end text-danger pe-4"><i class="bi bi-window-fullscreen"
+                onclick="fullscreen()"></i> &nbsp;F11
+            &nbsp;
 
             <span class="text-dark" onclick="timerFunction()" style="cursor: pointer;">
                 <i class="bi bi-clock-history timerOn" id="timer"></i>Remaining &nbsp;
@@ -439,6 +441,30 @@ id=b${i} onclick="btnFunction(${i})">${i}</button>`
         // localStorage.removeItem("name of localStorage variable you want to remove");
 
     </script>
+    <script>
+
+        function fullscreen() {
+            if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+                (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+                if (document.documentElement.requestFullScreen) {
+                    document.documentElement.requestFullScreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullScreen) {
+                    document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (document.cancelFullScreen) {
+                    document.cancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>
